@@ -17,10 +17,11 @@ pipeline**. Each stage is a self-contained, numbered phase with its own `config/
 | 07 | `07_training/` | Backprop + AdamW + checkpointing → **the trained model** |
 | 08 | `08_evaluation/` | Perplexity + text generation |
 | 09 | `09_finetuning/` | Continue training from a checkpoint (monthly updates) |
-| 10 | `10_automation/` | Monthly orchestrator: clean → tokenize → train → evaluate |
+| 10 | `10_deployment/` | Export checkpoint → GGUF and publish to **Ollama** (`ollama run`) |
+| 11 | `11_automation/` | Monthly orchestrator: clean → tokenize → train → evaluate → deploy |
 
 The trained model lands in `checkpoints/<version>/model.npz` (step 07 from scratch, step 09
-for fine-tuned updates).
+for fine-tuned updates), and step 10 makes it runnable in Ollama as `llm-stepbystep:<version>`.
 
 ## Quickstart
 
@@ -32,7 +33,7 @@ python3 -m venv <phase>/.venv
 
 Run a single month end to end (assumes docs in `01_training_input_data/raw/<batch>/`):
 ```bash
-./10_automation/scripts/run_month.sh 2026-08 continue
+./11_automation/scripts/run_month.sh 2026-08 continue
 ```
 
 Or step by step:
@@ -43,6 +44,8 @@ Or step by step:
 07_training/.venv/bin/python 07_training/scripts/train.py 2026-07 --version v0.1.0
 08_evaluation/.venv/bin/python 08_evaluation/scripts/evaluate.py \
     --checkpoint checkpoints/v0.1.0/model.npz --batch 2026-07
+10_deployment/.venv/bin/python 10_deployment/scripts/deploy.py \
+    --checkpoint checkpoints/v0.1.0/model.npz --version v0.1.0    # -> ollama run llm-stepbystep:v0.1.0
 ```
 
 ## Monthly retraining

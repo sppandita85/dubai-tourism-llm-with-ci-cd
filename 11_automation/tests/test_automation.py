@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Automation-phase checks: the orchestrator is valid and wires to real entrypoints.
 
-    python 10_automation/tests/test_automation.py
+    python 11_automation/tests/test_automation.py
 """
 from __future__ import annotations
 
@@ -37,7 +37,8 @@ def main() -> int:
                 "02_tokenization/scripts/tokenize_batch.py",
                 "07_training/scripts/train.py",
                 "09_finetuning/scripts/finetune.py",
-                "08_evaluation/scripts/evaluate.py"]:
+                "08_evaluation/scripts/evaluate.py",
+                "10_deployment/scripts/deploy.py"]:
         if not (REPO / rel).exists():
             failures.append(f"missing entrypoint referenced by orchestrator: {rel}")
 

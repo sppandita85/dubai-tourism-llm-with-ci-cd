@@ -1,0 +1,15 @@
+# Deployment configuration: publish a trained checkpoint to Ollama.
+
+# Ollama model name (the tag becomes the checkpoint version, e.g. llm-stepbystep:v0.2.0).
+model_name: llm-stepbystep
+
+# Generation defaults baked into the Ollama Modelfile.
+parameters:
+  temperature: 0.8
+  top_k: 40
+  num_ctx: 64        # must match the model's context_length
+
+# Push to the ollama.com registry after `ollama create` (needs `ollama` signed in and a
+# namespace, e.g. your ollama.com username). Local `ollama create` always runs.
+push_to_registry: false
+registry_namespace: ""   # e.g. "sppandita85" -> pushes <namespace>/<model_name>:<version>
