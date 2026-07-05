@@ -1,0 +1,20 @@
+# Position-wise feed-forward (MLP) configuration.
+# These are MODEL hyperparameters; the two linear layers are learned during training.
+
+# Must match the model width (emb_dim from the embedding/attention phases).
+emb_dim: 256
+
+# Hidden layer expansion factor. Hidden size = emb_dim * hidden_mult (GPT uses 4).
+hidden_mult: 4
+
+# Nonlinearity between the two linear layers: "gelu" (GPT-2) or "relu".
+activation: gelu
+
+# Dropout applied to the MLP output during training.
+dropout: 0.1
+
+# Whether the two linear layers include bias terms.
+bias: true
+
+# RNG seed so the demo's random (untrained) weights are reproducible.
+seed: 123

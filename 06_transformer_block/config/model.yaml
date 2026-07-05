@@ -1,0 +1,15 @@
+# Model (transformer stack) configuration.
+# Widths must be consistent with the earlier phases (emb_dim, context_length).
+
+emb_dim: 256          # model width; matches embedding / attention / mlp phases
+context_length: 256   # max sequence length (matches embedding phase)
+num_heads: 8          # attention heads per block (emb_dim % num_heads == 0)
+num_layers: 6         # number of stacked transformer blocks (N)
+hidden_mult: 4        # MLP hidden = emb_dim * hidden_mult
+activation: gelu      # MLP nonlinearity: gelu | relu
+pos_type: learned     # positional embedding: learned | sinusoidal
+dropout: 0.1          # dropout used during training
+bias: true            # bias terms in attention/MLP projections
+seed: 123             # reproducible random (untrained) weights
+
+# vocab_size is read from the tokenized batch's meta.json, not set here.

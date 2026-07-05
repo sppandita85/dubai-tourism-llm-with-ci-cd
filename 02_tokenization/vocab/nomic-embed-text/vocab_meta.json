@@ -1,0 +1,14 @@
+{
+  "source_model": "nomic-embed-text:latest",
+  "source_blob_digest": "sha256:970aa74c0a90ef7482477cf803618e776e173c007bf957f635f1015bfcfef0e6",
+  "tokenizer_model_type": "bert",
+  "vocab_size": 30522,
+  "special_tokens": {
+    "unk": 100,
+    "cls": 101,
+    "sep": 102,
+    "pad": 0,
+    "mask": 103
+  },
+  "word_prefix_marker": "U+2581"
+}

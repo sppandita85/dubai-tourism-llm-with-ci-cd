@@ -1,0 +1,24 @@
+# Input-embedding configuration.
+# These are MODEL hyperparameters (not data settings). The embedding weights are
+# learned during training; this phase only defines the layer and demonstrates it.
+
+# Embedding dimension (size of each token's vector). Matches stories-llm (256).
+emb_dim: 256
+
+# Maximum sequence length the model can attend over. Positional table has this many rows.
+context_length: 256
+
+# Positional embedding type:
+#   learned     - a [context_length, emb_dim] weight matrix, GPT-2 style (trainable params)
+#   sinusoidal  - fixed sin/cos table from "Attention Is All You Need" (no parameters)
+# (RoPE is intentionally not here: it is applied inside attention, not added to inputs.)
+pos_type: learned
+
+# Dropout applied to the summed (token + positional) embeddings during training.
+dropout: 0.1
+
+# RNG seed so the demo's random (untrained) embeddings are reproducible.
+seed: 123
+
+# vocab_size is NOT set here — it is read from the tokenized batch's meta.json
+# (01_training_input_data/processed/<batch>/meta.json) so it always matches the tokenizer.

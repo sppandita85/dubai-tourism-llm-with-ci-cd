@@ -1,0 +1,17 @@
+# Causal multi-head self-attention configuration.
+# These are MODEL hyperparameters; the projection weights are learned during training.
+
+# Must match the embedding phase's emb_dim (the attention input/output width).
+emb_dim: 256
+
+# Number of attention heads. Must divide emb_dim evenly (head_dim = emb_dim / num_heads).
+num_heads: 8
+
+# Dropout applied to the attention weights during training.
+dropout: 0.1
+
+# Whether the Q/K/V/output projections include bias terms.
+bias: true
+
+# RNG seed so the demo's random (untrained) weights are reproducible.
+seed: 123

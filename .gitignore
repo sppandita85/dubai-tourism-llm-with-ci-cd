@@ -1,0 +1,18 @@
+# Python virtual environments (large, per-phase, regenerable via each README's setup)
+.venv/
+*/.venv/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+
+# OS cruft
+.DS_Store
+
+# Automation run logs
+*/logs/*.log
+
+# Trained model checkpoints (large binaries; regenerate via 07_training / 09_finetuning).
+# Remove this line if you want to version the trained models in the repo.
+checkpoints/

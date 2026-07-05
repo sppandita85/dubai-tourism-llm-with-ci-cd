@@ -1,0 +1,27 @@
+# Tokenizer configuration for the monthly training pipeline.
+# Change the tokenizer by editing this file, not the scripts.
+
+# Which locally-hosted Ollama model to borrow the tokenizer from.
+# The vocab is read from that model's GGUF blob (the Ollama HTTP server cannot
+# return token IDs, so tokenization happens offline against the blob).
+source_model: nomic-embed-text:latest
+
+# Where the Ollama model store lives (blobs + manifests). ~ is expanded.
+ollama_models_dir: ~/.ollama/models
+
+# Directory (under 02_tokenization/vocab/) holding the extracted tokenizer artifact.
+vocab_dir: nomic-embed-text
+
+# Special tokens. nomic-embed-text is a BERT WordPiece model.
+special_tokens:
+  unk: "[UNK]"
+  cls: "[CLS]"
+  sep: "[SEP]"
+  pad: "[PAD]"
+  mask: "[MASK]"
+
+# Token inserted between documents when packing a batch into one stream.
+doc_separator: "[SEP]"
+
+# Output integer width for token IDs. uint16 is valid while vocab_size < 65536.
+output_dtype: uint16

@@ -1,0 +1,15 @@
+# Evaluation configuration.
+
+# How many non-overlapping windows to score for perplexity.
+max_windows: 200
+
+# Text generation settings for the qualitative sample.
+generate:
+  prompt: "Dubai is"       # decoded->tokenized as the seed; empty uses [CLS]
+  max_new_tokens: 40
+  temperature: 0.8
+  top_k: 40
+  seed: 0
+
+# Tokenizer artifact (from the tokenization phase) used to decode generated ids to text.
+tokenizer_json: 02_tokenization/vocab/nomic-embed-text/tokenizer.json

@@ -1,0 +1,12 @@
+# Fine-tuning configuration.
+# Fine-tuning = continue training an EXISTING checkpoint on new/newer data, usually with a
+# smaller learning rate and fewer steps than training from scratch. The model architecture
+# comes from the checkpoint, so no model config is needed here.
+
+steps: 100
+lr: 0.0002        # lower than from-scratch training (0.0006) to avoid forgetting
+weight_decay: 0.01
+batch_size: 12
+val_frac: 0.1
+eval_every: 25
+seed: 7
