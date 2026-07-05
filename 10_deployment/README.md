@@ -1,7 +1,7 @@
 # Deployment Phase (push to Ollama)
 
 Takes a trained checkpoint (`checkpoints/<version>/model.npz`) and makes it a **runnable
-Ollama model**, so you can `ollama run llm-stepbystep:<version>` and chat with the model you
+Ollama model**, so you can `ollama run dubai-tourism-llm:<version>` and chat with the model you
 trained. This is the last step of the monthly loop — the fine-tuned model goes live.
 
 ## How it works
@@ -29,7 +29,7 @@ The GGUF and Modelfile are written next to the checkpoint (`checkpoints/<version
 ```bash
 PY=10_deployment/.venv/bin/python
 $PY 10_deployment/scripts/deploy.py --checkpoint checkpoints/v0.2.0/model.npz --version v0.2.0
-ollama run llm-stepbystep:v0.2.0 "Dubai is"      # then chat with your model
+ollama run dubai-tourism-llm:v0.2.0 "Dubai is"      # then chat with your model
 ```
 To publish to the ollama.com registry, set `registry_namespace` in `deploy.yaml` (and
 `push_to_registry: true`) or pass `--push`, after `ollama` is signed in.

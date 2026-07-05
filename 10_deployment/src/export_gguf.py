@@ -61,7 +61,7 @@ def export_checkpoint(checkpoint: str | Path, out_path: str | Path) -> dict:
     FF = E * cfg["hidden_mult"]
 
     w = GGUFWriter(str(out_path), "gpt2")
-    w.add_name("llm-stepbystep")
+    w.add_name("dubai-tourism-llm")
     w.add_context_length(cfg["context_length"])
     w.add_embedding_length(E)
     w.add_block_count(L)

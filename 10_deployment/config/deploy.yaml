@@ -1,7 +1,7 @@
 # Deployment configuration: publish a trained checkpoint to Ollama.
 
-# Ollama model name (the tag becomes the checkpoint version, e.g. llm-stepbystep:v0.2.0).
-model_name: llm-stepbystep
+# Ollama model name (the tag becomes the checkpoint version, e.g. dubai-tourism-llm:v0.2.0).
+model_name: dubai-tourism-llm
 
 # Generation defaults baked into the Ollama Modelfile.
 parameters:

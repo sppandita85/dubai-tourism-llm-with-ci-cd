@@ -13,7 +13,7 @@ raw/<batch> ─▶ clean ─▶ tokenize ─▶ train | fine-tune ─▶ evaluat
 3. **tokenize** — `02_tokenization/scripts/tokenize_batch.py`
 4. **train** — from scratch (`07_training/`) or **continue** the latest checkpoint (`09_finetuning/`)
 5. **evaluate** — `08_evaluation/scripts/evaluate.py` (perplexity + sample)
-6. **deploy** — `10_deployment/scripts/deploy.py` → `ollama create llm-stepbystep:<version>` (skipped if `ollama` isn't installed)
+6. **deploy** — `10_deployment/scripts/deploy.py` → `ollama create dubai-tourism-llm:<version>` (skipped if `ollama` isn't installed)
 
 Each phase runs in its own venv; the orchestrator just calls them in order and tees a log to
 `11_automation/logs/<batch>.log`.

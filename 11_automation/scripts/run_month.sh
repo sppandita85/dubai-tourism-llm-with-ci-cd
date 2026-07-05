@@ -67,4 +67,4 @@ else
 fi
 
 echo "=== done: $BATCH -> checkpoints/$VERSION (log: $LOG) ===" | tee -a "$LOG"
-echo "    run it:  ollama run llm-stepbystep:$VERSION" | tee -a "$LOG"
+echo "    run it:  ollama run dubai-tourism-llm:$VERSION" | tee -a "$LOG"
