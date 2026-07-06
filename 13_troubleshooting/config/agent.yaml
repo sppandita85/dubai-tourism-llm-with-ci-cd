@@ -1,0 +1,23 @@
+# Troubleshooting / RCA agent configuration (LangGraph + local Ollama).
+
+model: llama3.1:8b
+ollama_host: http://localhost:11434
+
+# Models the pipeline needs present in Ollama.
+required_models:
+  - llama3.1:8b
+  - nomic-embed-text
+  - dubai-tourism-llm
+
+# Where to look for evidence.
+manifest: 01_training_input_data/manifests/training_runs.jsonl
+log_globs:                       # NOTE: never scan our own logs (13_troubleshooting/logs)
+  - "11_automation/logs/*.log"
+  - "12_cicd/logs/*.log"
+  - "02_tokenization/logs/*.json"
+
+# Reuse the CI runner to reproduce/confirm code failures.
+test_runner: 12_cicd/run_all_tests.sh
+
+# LangGraph ReAct loop guard.
+recursion_limit: 25

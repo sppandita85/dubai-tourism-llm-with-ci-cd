@@ -77,6 +77,16 @@ local, no cloud.
 ```
 Flow: `git_sync → run_tests → check_model → VERDICT`. See [12_cicd/README.md](12_cicd/README.md).
 
+`13_troubleshooting/` is a companion **root-cause-analysis agent** (also LangGraph + llama3.1):
+it auto-scans the whole project — environment, logs, and JSONL manifests — and reports the
+root cause of any problem (`SYMPTOM → EVIDENCE → ROOT CAUSE → FIX`). Its `--no-llm` mode is a
+deterministic health check.
+```bash
+13_troubleshooting/.venv/bin/python 13_troubleshooting/scripts/troubleshoot.py            # RCA
+13_troubleshooting/.venv/bin/python 13_troubleshooting/scripts/troubleshoot.py --no-llm   # health check
+```
+See [13_troubleshooting/README.md](13_troubleshooting/README.md).
+
 ## Note on scale
 
 This is **pure NumPy on CPU** (the dev machine is an Intel Mac on Python 3.13, where PyTorch
