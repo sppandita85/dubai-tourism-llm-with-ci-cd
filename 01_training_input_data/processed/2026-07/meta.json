@@ -5,7 +5,7 @@
   "vocab_size": 30522,
   "dtype": "uint16",
   "tokenizer_source": "nomic-embed-text:latest",
-  "tokenizer_vocab_dir": "tokenization/vocab/nomic-embed-text",
+  "tokenizer_vocab_dir": "02_tokenization/vocab/nomic-embed-text",
   "unk_token_id": 100,
   "unk_count": 0,
   "unk_rate": 0.0,
@@ -17,5 +17,5 @@
       "n_tokens": 20898
     }
   ],
-  "created_at": "2026-07-05T13:53:32+00:00"
+  "created_at": "2026-07-05T19:36:29+00:00"
 }

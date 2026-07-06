@@ -7,7 +7,7 @@ model_name: dubai-tourism-llm
 parameters:
   temperature: 0.8
   top_k: 40
-  num_ctx: 64        # must match the model's context_length
+  num_ctx: 128       # must match the model's context_length
 
 # Push to the ollama.com registry after `ollama create` (needs `ollama` signed in and a
 # namespace, e.g. your ollama.com username). Local `ollama create` always runs.
