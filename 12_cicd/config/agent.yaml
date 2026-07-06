@@ -1,0 +1,17 @@
+# CI/CD agent configuration (LangGraph + local Ollama).
+
+# Ollama model that reasons and calls the tools (must support tool-calling).
+model: llama3.1:8b
+ollama_host: http://localhost:11434
+
+# Code under test: pulled fresh from GitHub each run.
+repo_url: https://github.com/sppandita85/build-llm-stepbystep-with-ci-cd.git
+branch: main
+workspace: 12_cicd/workspace        # clone target (relative to repo root)
+
+# Deployed model to smoke-test after the suites pass.
+test_model: dubai-tourism-llm
+test_prompt: "Dubai is"
+
+# LangGraph ReAct loop guard (max node steps before it must conclude).
+recursion_limit: 25

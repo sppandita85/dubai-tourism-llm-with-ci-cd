@@ -1,0 +1,6 @@
+.venv/
+.ci-venv/
+workspace/
+logs/
+__pycache__/
+*.pyc

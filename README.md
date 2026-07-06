@@ -64,6 +64,19 @@ finite-difference, ~1e-6 in float64) and an **overfit-to-zero test** (a small mo
 a fixed batch, loss `ln(vocab) → ~0.01`). A trained run on the sample corpus takes the loss
 from **10.34 → 4.49**. Run any phase's tests with `<phase>/.venv/bin/python <phase>/tests/*.py`.
 
+## CI/CD agent (LangGraph + local llama3.1)
+
+`12_cicd/` is an **agentic CI runner** whose brain is a local Ollama model (`llama3.1:8b`),
+orchestrated with **LangGraph**. It pulls the code from GitHub, runs all 10 phase test suites,
+smoke-tests the deployed `dubai-tourism-llm` model, and returns a PASS/FAIL verdict — fully
+local, no cloud.
+
+```bash
+12_cicd/.venv/bin/python 12_cicd/scripts/run_ci_agent.py            # llama3.1 drives the tools
+12_cicd/.venv/bin/python 12_cicd/scripts/run_ci_agent.py --no-llm   # same steps, deterministic + fast
+```
+Flow: `git_sync → run_tests → check_model → VERDICT`. See [12_cicd/README.md](12_cicd/README.md).
+
 ## Note on scale
 
 This is **pure NumPy on CPU** (the dev machine is an Intel Mac on Python 3.13, where PyTorch
