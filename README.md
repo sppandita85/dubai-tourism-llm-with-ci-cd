@@ -92,4 +92,4 @@ See [13_troubleshooting/README.md](13_troubleshooting/README.md).
 This is **pure NumPy on CPU** (the dev machine is an Intel Mac on Python 3.13, where PyTorch
 has no wheels). It is correct and complete for learning and small monthly runs; for real
 scale, port the components to PyTorch/GPU — the tokenized `tokens.bin` files carry over
-unchanged.
+unchanged..
